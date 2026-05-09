@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aciel</title>
+  <meta name="description" content="ブランドの世界観・こだわり・代表作品・informationを1ページで。minneへスムーズに案内します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+
+  <!-- OGP（Instagramのリンク表示に効く） -->
+  <meta property="og:title" content="Aciel｜ハンドメイドアクセサリー" />
+  <meta property="og:description" content="毎日にそっとなじむ、ハンドメイドアクセサリー。" />
+  <meta property="og:type" content="website" />
+  <!-- ここに代表画像URL（GitHub Pages公開後の画像URLなど） -->
+  <meta property="og:image" content="https://example.com/ogp.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#f7f3ea;
+      --bg-image:url("z-aciel.jpg");
+      --card:#f4efe5;
+      --text:#000;
+      --muted:#000;
+      --cardText:#000;
+      --line:#e9ebef;
+      --accent:#e6e1e1; /* アクセントは白基調（写真を主役に） */
+      --btn:#f2f3f5;
+      --btnText:#000;
+      --radius:18px;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --max: 980px;
+      --brand-script: "Snell Roundhand", "Apple Chancery", "Times New Roman", serif;
+      --header-footer-jp: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+      --header-footer-serif-script: "Baskerville", "Times New Roman", serif;
+      --jp-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+      --hero-ivory: #f3ede4;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "itariandidone", "Italiana", "Didot", "Bodoni MT", serif;
+      background: var(--bg);
+      position: relative;
+      isolation: isolate;
+      color:var(--text);
+      line-height:1.7;
+    }
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background-image: var(--bg-image);
+      background-repeat: no-repeat;
+      background-position: 72% 30%;
+      background-size: cover;
+      opacity: .56;
+      z-index: -1;
+      pointer-events: none;
+    }
+    body::after{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(249,243,232,.62), rgba(246,238,224,.62)),
+        radial-gradient(130% 130% at 50% 45%, rgba(250,245,236,.42) 0%, rgba(246,238,224,.54) 100%);
+      opacity: .42;
+      z-index: -1;
+      pointer-events: none;
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: #000;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      font-family: var(--header-footer-serif-script), var(--header-footer-jp);
+      font-weight:500;
+      font-style:italic;
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:center;
+      padding:10px 0;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      text-decoration:none;
+      margin-right:auto;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-weight:700;
+    }
+    .brand-name{
+      font-family: var(--brand-script);
+      font-size:64px;
+      font-weight:400;
+      line-height:1;
+      letter-spacing:0;
+      font-style:normal;
+      color:var(--hero-ivory);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .nav{
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+      font-size:14px; color:var(--hero-ivory);
+      margin:0 auto;
+      font-family: var(--header-footer-serif-script), var(--header-footer-jp);
+      font-weight:500;
+      letter-spacing:.08em;
+      font-style:italic;
+    }
+    .nav a{opacity:.9; text-decoration:none; color:var(--hero-ivory)}
+    .nav a:hover{opacity:1; color:var(--hero-ivory)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius:999px;
+      background: var(--btn);
+      color: var(--btnText);
+      font-weight:700;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+      transition: transform .15s ease, opacity .15s ease;
+      min-height:44px; /* スマホ押しやすく */
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.sub{
+      background: transparent;
+      color: var(--text);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:none;
+    }
+    header.hero{
+      padding:54px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px;
+    }
+    .eyebrow{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:13px; color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.15;
+      letter-spacing:.01em;
+    }
+    .lead{color:var(--muted); font-size:16px; margin:0 0 18px}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .hero-note{color:var(--muted); font-size:13px; margin-top:14px}
+    .hero-media{
+      border-radius: var(--radius);
+      overflow:hidden;
+      aspect-ratio: 4 / 5;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      display:flex; flex-direction:column;
+      min-height: 260px;
+    }
+    .hero-media img{
+      width:100%; height:100%;
+      display:block;
+      object-fit:cover;
+      object-position: 72% center;
+    }
+    .media-caption{
+      padding:12px 14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:13px;
+    }
+    section{padding:34px 0}
+    .section-title{
+      font-size:22px; margin:0 0 14px;
+      letter-spacing:.01em;
+    }
+    .for-who-title{
+      padding-left: 12px;
+    }
+    .for-who-line-329{
+      display: inline-block;
+      margin-left: 0;
+    }
+    .section-desc{margin:0 0 16px; color:var(--muted)}
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:16px;
+      color: var(--cardText);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--cardText); font-size:14px}
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .about-title{
+      text-align:center;
+      margin-bottom: 6px;
+    }
+    .about-split .card{
+      padding:18px;
+    }
+    .about-split .card p{
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .about-split .card.story-right p{
+      margin: 0;
+      /* 左の「そう思って…」行に合わせるため、PCのみ開始位置を下げる */
+      padding-top: calc(1.7em * 2);
+    }
+    .quote{
+      padding:10px 18px 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .quote p{margin:0; color:var(--muted)}
+    .quote strong{color:var(--text)}
+    .products{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:22px;
+    }
+    .product{
+      position: relative;
+      isolation: isolate;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      display:flex; flex-direction:column;
+    }
+    .product > *{
+      position: relative;
+      z-index: 1;
+    }
+    .product-photo{
+      width:100%;
+      aspect-ratio: 4/3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(0,0,0,.55);
+      font-size:13px;
+      text-align:center;
+      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border-bottom:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .product-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .product-body{padding:14px}
+    .product-title{margin:0 0 6px; font-size:15px; line-height:1.3; min-height:2.6em}
+    .product-meta{margin:0 0 10px; color:var(--muted); font-size:12px; line-height:1.7}
+    .product a.btn{width:100%}
+    .bullets{
+      margin:0; padding-left:18px; color:var(--muted);
+    }
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:12px 14px;
+      background: rgba(255,255,255,.03);
+    }
+    details + details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight:700;
+      outline:none;
+    }
+    .small{font-size:13px; color:var(--muted)}
+    .cross-match{
+      display:inline-block;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+      font-size: 1em;
+      line-height: 1;
+      vertical-align: baseline;
+      transform: translateY(-0.02em);
+    }
+    .num-fix{
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+      font-size: 1em;
+      line-height: inherit;
+      vertical-align: baseline;
+      font-variant-numeric: proportional-nums;
+    }
+    footer{
+      padding:26px 0 40px;
+      background:#000;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:13px;
+      font-family: var(--header-footer-serif-script), var(--header-footer-jp);
+      font-weight:500;
+      letter-spacing:.06em;
+      font-style:italic;
+    }
+    footer .brand-name{
+      display:inline-block;
+      font-size:52px;
+      color:var(--hero-ivory);
+    }
+    footer,
+    footer .small,
+    footer a{
+      color:var(--hero-ivory);
+    }
+    .cta-band{
+      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:18px;
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    /* レスポンシブ */
+    @media (max-width: 900px){
+      body::before{background-position:72% 30%}
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .products{grid-template-columns:1fr}
+      .nav{display:none} /* スマホはシンプルに */
+      .about-split .card.story-right p{padding-top:0}
+      .brand-name{font-size:52px}
+      footer .brand-name{font-size:42px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ここを差し替え -->
+  <!-- minneのショップ（作品一覧）URL -->
+  <!-- 例：https://minne.com/@aciel -->
+  <script>
+    // JSは使わない前提だけど、URL管理を楽にするために1行だけ（嫌なら消してOK）
+    window.MINNE_SHOP_URL = "https://minne.com/@aciel";
+
+    // 数字の見た目を前後の和文と揃える
+    document.addEventListener("DOMContentLoaded", () => {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const textNodes = [];
+      let node;
+
+      while ((node = walker.nextNode())) {
+        const parent = node.parentElement;
+        if (!parent) continue;
+        if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) continue;
+        if (!node.nodeValue || !/[0-9０-９]/.test(node.nodeValue)) continue;
+        textNodes.push(node);
+      }
+
+      for (const textNode of textNodes) {
+        const html = textNode.nodeValue.replace(
+          /([0-9０-９]+)/g,
+          '<span class="num-fix">$1</span>'
+        );
+        const wrapper = document.createElement("span");
+        wrapper.innerHTML = html;
+        textNode.parentNode.replaceChild(wrapper, textNode);
+      }
+    });
+  </script>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+      <!-- ロゴ文字：ブランド頭文字など -->
+        <div class="brand-name">Aciel</div>
+      </a>
+
+      <nav class="nav" aria-label="ページ内ナビ">
+        <a href="#works">代表作品</a>
+        <a href="#about">作者・ブランドについて
+        </a>
+        <a href="#information">Information</a>
+      </nav>
+
+      
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">ハンドメイドアクセサリー｜一点ずつ製作</div>
+
+          <h1>色気を纏う<br> モテアクセサリー</h1>
+
+          <p class="lead">
+<!-- ここを書き換え：誰向け＋強み -->
+〝私のために選ぶ〟<br>
+ゴールド<span class="cross-match">×</span>フェミニン<span class="cross-match">×</span>ひとさじ
+色気を添えたアクセサリー<br>
+誰かに媚びるためじゃなく
+自分を大切にするために。<br>
+この瞬間、私に惚れる。<br><br>
+ー冷たいはずの素材が<br>
+身につけた瞬間、じんわり温かくなる。<br>
+それは、心の色気が滲み出る瞬間ー
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="https://minne.com/@aciel" target="_blank" rel="noopener">minneで作品を見る</a>
+            <a class="btn sub" href="#works">代表作品をみる</a>
+          </div>
+
+          <p class="hero-note">
+            <!-- ここを書き換え：安心材料を短く -->
+            発送目安：3〜5日／ラッピング対応：可／修理相談：可
+          </p>
+        </div>
+
+        <div class="hero-media" aria-label="メイン画像">
+          <!-- 画像を差し替え：/images/hero.jpg を用意するか、URL指定でもOK -->
+          <img src="1776742283447.jpg" alt="ブランドの代表作品の着用イメージ">
+        </div>
+      </div>
+    </header>
+
+    <!-- FOR WHO -->
+    <section>
+      <div class="container">
+        <h2 class="section-title for-who-title">人生を、抱きしめ直すアクセサリー。<br>
+          <span class="for-who-line-329">自分の心地よさのためにAcielを着ける。<br>
+          誰かのためじゃなく、今日の私のために選ぶ輝き。<br>
+          ふと独りになる瞬間。<br>
+          誰のためでもなく、静かに在る私に戻る時間。<br>
+          そんな静かな時間に、そっと寄り添うお守りのような存在。<br>
+        </h2>
+        <p class="section-desc"></p>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title about-title">作家・ブランドについて</h2>
+        <div class="split about-split">
+          <div class="quote">
+          <p>
+            Aciel（アシェル）/ Designer  Airi<br><br>
+            「誰かのためじゃないと生き方がわからなかった」<br><br>
+            そう思っていた頃の私がいます。<br><br>
+            何もないと思っていた私に<br>
+            「私には、これがある」<br>
+            そう気づかせてくれたのがAcielでした。<br><br>
+            昔からキラキラが好きで、<br>
+            アクセサリーの仕事に就き、<br>
+            自分のために作り始めたアクセサリー。<br><br>
+            それが誰かの元へ届き、<br>
+            「嬉しい」と言ってもらえる。<br><br>
+            でも本当は、<br>
+            その度に救われていたのは私自身。
+          </p>
+          </div>
+
+          <div class="card story-right">
+            <p>
+              Acielは、<br>
+              私が私に戻る場所。<br><br>
+              そして同じように、<br>
+              自分を思い出す途中にいる誰かの<br>
+              きっかけになれたら。<br><br>
+              Acielは、<br>
+              人生も<br>
+              アクセサリーも<br>
+              日々の小さな決断も<br>
+              あなたが“あなたを選ぶ”ためのジュエリーです。<br><br>
+              その静かな選択が、<br>
+              やがて誰にもやさしく広がっていく。<br><br>
+              私はこれからも、<br>
+              自分を大切にすることから始まる<br>
+              アクセサリーを作り続けます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKS -->
+    <section id="works">
+      <div class="container">
+        <h2 class="section-title">代表作品</h2>
+        <p class="section-desc">
+          Acielの2つのラインをご案内します。
+        </p>
+
+        <div class="products">
+          <!-- 商品1 -->
+          <article class="product">
+            <div class="product-photo" aria-label="Aciel通常版の写真">
+              <img src="z-aciel-normal.jpg" alt="Aciel通常版のアクセサリー写真">
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Aciel通常版</h3>
+              <p class="product-meta">Acielは“今の自分”にそっと寄り添う存在でありたいをコンセプトに
+                お手に取りやすい価格で日々に馴染むデザインとなっております。
+              </p>
+              <a class="btn" href="https://minne.com/@aciel" target="_blank" rel="noopener">minneで見る</a>
+            </div>
+          </article>
+
+          <!-- 商品2 -->
+          <article class="product">
+            <div class="product-photo" aria-label="Aciel Luxury版の写真">
+              <img src="z-aciel-luxury.jpg" alt="Aciel Luxury版のアクセサリー写真">
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Aciel Luxury版</h3>
+              <p class="product-meta">Aciel Luxuryは“こう在りたい私”を、やわらかく映し出す存在でありたい
+                をコンセプトに上質な素材と存在感で目を奪う印象的なデザインとなっております。
+              </p>
+              <a class="btn" href="https://minne.com/@aciel" target="_blank" rel="noopener">minneで見る</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- information -->
+    <section id="information">
+      <div class="container">
+        <h2 class="section-title">Information</h2>
+        <p class="section-desc"></p>
+
+        <details>
+          <summary>金属アレルギーについて</summary>
+          <p class="small">
+          Acielではメッキ素材を使用しております。
+
+耳に直接触れる部分は、
+ご購入時に
+・サージカルステンレス
+・チタン
+・樹脂
+よりお選びいただけます。
+
+※一部デザインにより変更ができない商品もございます。
+
+なお、体質には個人差があるため、
+すべての方にアレルギー反応が出ないことを保証するものではございません。
+
+ご不安な方は、事前にお気軽にご相談くださいませ。
+
+          </p>
+        </details>
+
+        <details>
+          <summary>お手入れ方法</summary>
+          <p class="small">
+          ご使用後は、柔らかい布などで優しく拭いていただき、
+なるべく空気に触れない状態で保管いただくことをおすすめしております。
+
+汗や水分が付着したままですと、
+変色や劣化の原因となる場合がございますのでご注意ください。
+
+日々の少しのケアで、
+より長くお楽しみいただけます。
+
+          </p>
+        </details>
+
+        <details>
+          <summary>破損・修理について</summary>
+          <p class="small">
+          万が一、破損などがございました場合は
+お写真を添えてご連絡くださいませ。
+
+状態を確認の上、
+可能な限り修理のご提案をさせていただきます。
+
+※デザインや状態により、修理が難しい場合もございます。
+あらかじめご了承ください。
+
+大切にお選びいただいたものだからこそ、
+まずは一度ご相談いただけましたら幸いです。<br>
+
+♦︎ 初期不良について
+
+商品には十分に検品を行っておりますが、
+万が一、到着時に破損や不具合がございました場合は、
+商品到着日を含め7日以内にご連絡ください。
+
+期日を過ぎた場合は、状態により有償修理にてご相談を承る場合がございます。
+
+状態を確認の上、
+交換または修理にて対応させていただきます。
+
+※在庫状況やデザインにより、
+交換が難しい場合は返金対応とさせていただく場合がございます。
+
+大切なお品をお届けする中で、
+ご不安な思いをさせてしまうことがございましたら
+心よりお詫び申し上げます。
+
+まずはお写真を添えてご連絡いただけましたら幸いです。
+
+          </p>
+        </details>
+
+        <details>
+          <summary>一点ものについて</summary>
+          <p class="small">
+          Acielでは、その時に出会えた素材で
+一点もののデザインもお作りしております。
+
+万が一、修理や交換が必要となった場合、
+全く同じパーツをご用意できないことがございます。
+
+その際は、できる限り元の雰囲気を
+大切にしながら、
+事前にご相談のうえ、
+近いパーツにてご提案させていただきます。
+
+仕上がりにご納得いただいてから
+対応を進めさせていただきますので、
+ご安心ください。対応を進めさせていただきますので、
+ご安心ください。
+
+          </p>
+        </details>
+
+        <div class="quote" style="margin-top:18px;">
+          <h3 style="margin:0 0 8px; font-size:20px;">ご購入の流れ</h3>
+          <ol class="small" style="margin:0; padding-left:18px;">
+            <li>minneへアクセス</li>
+            <li>ご希望のアクセサリーを選択</li>
+            <li>商品内容のご確認</li>
+            <li>ご入金確認後大切にお届けいたします。</li>
+          </ol>
+          <p class="small" style="margin:14px 0 0; text-align:center;">
+            〜選んだ瞬間からもうあなたのもの〜
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;">
+        <div>
+          <span class="brand-name">Aciel</span><br>
+          <span class="small">© <span id="y"></span></span>
+        </div>
+        <div>
+          <span class="small">
+            購入・お問い合わせは <br>
+            <!-- Instagramへのリンクも任意で -->
+            Instagram：<a href="https://www.instagram.com/aciel_jewelry?igsh=MWw0d3Bjd2s3eng5bQ==" target="_blank" rel="noopener">@aciel_jewelry</a>
+          </span>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:center; margin-top:16px;">
+        <a class="btn" href="#top">ページ上部へ</a>
+      </div>
+    </div>
+    <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- もしJSを完全にゼロにしたいなら、上の年表示とMINNE_SHOP_URLは削除してOK -->
+</body>
+</html>
