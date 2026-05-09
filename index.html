@@ -7,7 +7,7 @@
   <meta name="description" content="ブランドの世界観・こだわり・代表作品・informationを1ページで。minneへスムーズに案内します。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Italiana&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Italiana&display=swap" rel="stylesheet">
 
   <!-- OGP（Instagramのリンク表示に効く） -->
   <meta property="og:title" content="Aciel｜ハンドメイドアクセサリー" />
@@ -32,7 +32,7 @@
       --radius:18px;
       --shadow: 0 12px 40px rgba(0,0,0,.35);
       --max: 980px;
-      --brand-script: "Allura", "Snell Roundhand", "Apple Chancery", "Times New Roman", serif;
+      --brand-script: "Alex Brush", "Snell Roundhand", "Apple Chancery", "Times New Roman", serif;
       --header-footer-jp: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       --header-footer-serif-script: "Baskerville", "Times New Roman", serif;
       --jp-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
@@ -104,12 +104,14 @@
       font-family: var(--brand-script);
       font-size:64px;
       font-weight:400;
-      line-height:1;
+      line-height:1.05;
       letter-spacing:0;
       font-style:normal;
       color:var(--hero-ivory);
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
+      font-feature-settings: "liga" 1, "kern" 1;
     }
     .nav{
       display:flex; gap:14px; align-items:center; flex-wrap:wrap;
