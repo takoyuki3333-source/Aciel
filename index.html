@@ -89,14 +89,14 @@
     }
     .topbar-inner{
       display:flex; align-items:center; justify-content:center;
+      flex-direction:column;
       padding:10px 0;
       gap:16px;
-      flex-wrap:wrap;
     }
     .brand{
       display:flex; gap:10px; align-items:center;
       text-decoration:none;
-      margin-right:auto;
+      margin-right:0;
     }
     .logo{
       width:36px; height:36px; border-radius:12px;
@@ -378,9 +378,6 @@
       .topbar-inner{
         justify-content:center;
         padding:12px 0;
-      }
-      .brand{
-        margin-right:0;
       }
       .nav{
         display:flex;
